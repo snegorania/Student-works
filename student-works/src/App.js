@@ -2,8 +2,11 @@ import './App.css';
 import TableData from './features/student/Components/TableData';
 import WorkPage from './features/student/Components/WorkPage'
 import { Routes, Route } from 'react-router-dom';
+import { fillStorage } from './app/fillStorage';
+import { useEffect } from 'react';
 
 function App() {
+  useEffect(()=> {fillStorage()},[]);
   return (
     <Routes>
       <Route path="/" element={<TableData />}/>

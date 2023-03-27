@@ -45,3 +45,17 @@
 .error {
   color: red;
 }
+
+.arrow {
+  display: block;
+  height: 7px;
+  width: 7px;
+}
+
+.sort {
+  display: flex;
+  align-items: center;
+}
+.table-heading {
+  margin-right: 10px;
+}

@@ -1,16 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
+import sortFunctionCreater from '../../app/sortFunctionCreater';
 
-const initialState = [];
-
-function compareNumeric(a, b) {
-    if (a.id > b.id) return 1;
-    if (a.id < b.id) return -1;
-}
-
-function compareFirstName(a, b) {
-    if (a.FirstName > b.FirstName) return 1;
-    if (a.FirstName < b.FirstName) return -1;
-}
+const initialState = {
+    students: [],
+    column: "",
+    counterL: 0,
+    counterF: 0
+};
 
 const studentSlice = createSlice({
     name: 'students',
@@ -18,84 +14,101 @@ const studentSlice = createSlice({
     reducers: {
         studentAdded: {
             reducer(state, action) {
-                state.push(action.payload.student);
-                if (action.payload.sortType === "id") {
-                    state.sort(compareNumeric);
+                state.students.push(action.payload);
+                if(state.column === "LastName") {
+                    state.students.sort(sortFunctionCreater(state.counterL, state.column));
                 } else {
-                    state.sort(compareFirstName);
+                    state.students.sort(sortFunctionCreater(state.counterF, state.column));
                 }
             },
 
-            prepare(student, sortType) {
-                return {
-                    payload: {
-                        student,
-                        sortType
-                    }
-                }
-            }
         },
 
         studentDeleted(state, action) {
-            state.splice(action.payload, 1);
+            for (let i = 0; i < action.payload.length; i++) {
+                state.students.splice(state.students.indexOf(state.students.find(el => el.id === action.payload.id)), 1);  
+            }
+            if(state.column === "LastName") {
+                state.students.sort(sortFunctionCreater(state.counterL, state.column));
+            } else {
+                state.students.sort(sortFunctionCreater(state.counterF, state.column));
+            }
         },
 
         studentEdited: { 
             reducer(state,action) {
-                state.splice(action.payload.id, 1, action.payload.student);
-                if (action.payload.sortType === "id") {
-                    state.sort(compareNumeric);
+                state.students.splice(state.students.indexOf(state.students.find(el => el.id === action.payload.id)), 1, action.payload.student);
+                if(state.column === "LastName") {
+                    state.students.sort(sortFunctionCreater(state.counterL, state.column));
                 } else {
-                    state.sort(compareFirstName);
+                    state.students.sort(sortFunctionCreater(state.counterF, state.column));
                 }
             },
 
-            prepare(student, sortType) {
+            prepare(student) {
                 return {
                     payload: {
                         id: student.id,
                         student: {...student},
-                        sortType
                     }
                 }
             }
         },
 
-        studentsFromLocalStorage(state, action) {
+        studentsFromLocalStorage(state) {
             state.length = 0;
-            let key = '';
-            for(let i = 0; i < localStorage.length; i++) {
-              key = localStorage.key(i);
-              state.push(JSON.parse(localStorage.getItem(key)));
+            let arr = JSON.parse(localStorage.getItem('students'));
+            for(let i = 0; i < arr.length; i++) {
+                state.students.push(arr[i]);
             }
-            if (action.payload === "id") {
-                state.sort(compareNumeric);
+
+            if(state.column === "LastName") {
+                state.students.sort(sortFunctionCreater(state.counterL, state.column));
             } else {
-                state.sort(compareFirstName);
+                state.students.sort(sortFunctionCreater(state.counterF, state.column));
             }
         },
 
         studentsLoadToLocalStorage(state) {
             localStorage.clear();
-            state.forEach((el, i) => {localStorage.setItem(String(i), JSON.stringify(el));});
+            localStorage.setItem('students', JSON.stringify(state))
         },
 
         studentsSorted(state, action) {
-            if (action.payload === "id") {
-                state.sort(compareNumeric);
+            state.column = action.payload
+            if (action.payload === "LastName") {
+                if( state.counterL === 2 ) {
+                    state.counterL = 0;
+                } else {
+                    state.counterL++;
+                }
+                state.students.sort(sortFunctionCreater(state.counterL, state.column));
             } else {
-                state.sort(compareFirstName);
+                if( state.counterF === 2 ) {
+                    state.counterF = 0;
+                } else {
+                    state.counterF++;
+                }
+                state.students.sort(sortFunctionCreater(state.counterF, state.column));
             }
         },
 
         studentsReset(state) {
-            state.length = 0;
+            state.students.length = 0;
         }
     }
 });
 
-export const selectAllStudents = (state) => state.students;
-export const selectStudentById = (state, id) => state.students.find(el => el.id === id);
+export const selectAllStudents = (state, filters) => {
+    if (filters.group || filters.topic) {
+        return state.students.students.filter(el => 
+            ((filters.group && filters.topic) && (filters.topic === el.topic && filters.group === el.group)) || 
+            (!(filters.group && filters.topic) && ((filters.group && el.group === filters.group) || (filters.topic && el.topic === filters.topic))))
+    } else {
+        return state.students.students;
+    }
+}
+export const selectStudentById = (state, id) => state.students.students.find(el => el.id === id);
 export const { studentAdded, studentDeleted, studentEdited, studentsReset, studentsFromLocalStorage, studentsLoadToLocalStorage, studentsSorted} = studentSlice.actions;
 
 export default studentSlice.reducer;

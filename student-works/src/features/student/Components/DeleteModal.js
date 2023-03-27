@@ -28,7 +28,7 @@ function DeleteModal(props) {
           {
             (deleted) ?
               <div>
-                <ModalBody>Student {props.id} is deleted</ModalBody>
+                <ModalBody>Student {props.amount} is deleted</ModalBody>
                 <ModalFooter>
                   <Button color="primary" onClick={resetModal}>Ok</Button>
                 </ModalFooter>
@@ -38,7 +38,7 @@ function DeleteModal(props) {
                 (loading) ?
                   <Spinner className="m-5" color="info">Loading...</Spinner> :
                   <div>
-                    <ModalBody>Are you sure?</ModalBody>
+                    <ModalBody>Are you sure that you want to delete {props.amount} students?</ModalBody>
                     <ModalFooter>
                       <Button color="primary" onClick={handleClick}>Yes</Button>
                       <Button color="secondary" onClick={props.toggleDelete}>Cancel</Button>
@@ -52,7 +52,7 @@ function DeleteModal(props) {
 }
 
 DeleteModal.propTypes = {
-  id: PropTypes.string,
+  amount: PropTypes.string,
   toggleDelete: PropTypes.func,
   deleteModal: PropTypes.bool,
   deleteStudent: PropTypes.func
