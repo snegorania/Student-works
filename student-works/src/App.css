@@ -56,6 +56,20 @@
   display: flex;
   align-items: center;
 }
+
 .table-heading {
   margin-right: 10px;
+}
+
+.navigation:hover {
+  cursor: pointer;
+}
+
+.logo {
+  display: flex;
+}
+
+.logo-heading {
+  font-size: 32px;
+  padding-left: 10px;
 }

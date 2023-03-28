@@ -9,15 +9,18 @@ import '../../../App.css';
 function TableRow (props) {
 
   const navigate = useNavigate();
-  const [cheked, setChecked] = useState(false)
 
-  function handleCheck(e) {
-    setChecked(e.target.checked);
+  function handleClick(e) {
+    if (e.target.checked) {
+      props.handleCheck();
+    } else {
+      props.handleUnCheck();
+    }
   }
 
   return(
-    <tr key={props.id} data-testid="table-row">
-        <th scope="row"><input type="checkbox" onChange={handleCheck}/></th>
+    <tr key={props.id} data-testid="table-row" className="navigation">
+        <th scope="row"><input type="checkbox" onChange={handleClick}/></th>
         <td onClick={() => navigate(`/element/${props.id}`)}>{props.FirstName}</td>
         <td onClick={() => navigate(`/element/${props.id}`)}>{props.LastName}</td>
         <td onClick={() => navigate(`/element/${props.id}`)}>{props.group}</td>
@@ -36,7 +39,8 @@ TableRow.propTypes = {
   topic: PropTypes.string,
   editClick: PropTypes.func,
   deleteClick: PropTypes.func,
-  checkClick: PropTypes.func
+  handleCheck: PropTypes.func,
+  handleUnCheck: PropTypes.func
 };
 
 export default TableRow;

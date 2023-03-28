@@ -6,7 +6,8 @@ import { fillStorage } from './app/fillStorage';
 import { useEffect } from 'react';
 
 function App() {
-  useEffect(()=> {fillStorage()},[]);
+  const filled = false
+  useEffect(()=> {fillStorage()},[filled]);
   return (
     <Routes>
       <Route path="/" element={<TableData />}/>

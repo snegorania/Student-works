@@ -25,8 +25,8 @@ const studentSlice = createSlice({
         },
 
         studentDeleted(state, action) {
-            for (let i = 0; i < action.payload.length; i++) {
-                state.students.splice(state.students.indexOf(state.students.find(el => el.id === action.payload.id)), 1);  
+            for(let i = 0; i < action.payload.length; i++) {
+                state.students.splice((state.students.indexOf(state.students.find(el => el.id === action.payload[i]))), 1);
             }
             if(state.column === "LastName") {
                 state.students.sort(sortFunctionCreater(state.counterL, state.column));
