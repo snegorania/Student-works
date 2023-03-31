@@ -5,24 +5,14 @@ import { useParams } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../../../App.css";
 import { selectStudentById } from "../studentSlice";
+import WorkPageV2 from "./WorkPageV2";
 
 function WorkPage() {
   const { id } = useParams();
-  const work = useSelector((state) => selectStudentById(state, id));
-  const navigate = useNavigate();
+  //const work = useSelector((state) => selectStudentById(state, id));
+  // const navigate = useNavigate();*/
 
-  return (
-    <ul data-testid="list" className="wrapper">
-      <li>id: {work.id}</li>
-      <li>First name: {work.FirstName}</li>
-      <li>Last name: {work.LastName}</li>
-      <li>group: {work.group}</li>
-      <li>topic: {work.topic}</li>
-      <li>answer:</li>
-      <p>{work.answer}</p>
-      <Button onClick={() => navigate(-1)}>Return</Button>
-    </ul>
-  );
+  return <WorkPageV2 id={id} />;
 }
 
 export default WorkPage;

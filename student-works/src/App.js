@@ -7,10 +7,11 @@ import Layout from "./app/Layout";
 import TablePage from "./features/student/Components/TablePage";
 
 function App() {
-  const filled = false;
   useEffect(() => {
-    fillStorage();
-  }, [filled]);
+    if (localStorage.getItem("students") === null) {
+      fillStorage();
+    }
+  }, []);
   return (
     <Routes>
       <Route path="/" element={<Layout />}>

@@ -2,12 +2,7 @@ import React from "react";
 import { Table } from "reactstrap";
 import TableRow from "./TableRow";
 import "bootstrap/dist/css/bootstrap.min.css";
-import {
-  selectAllStudents,
-  studentsSorted,
-  studentMarkChecked,
-  studentMarkUnChecked,
-} from "../studentSlice";
+import { selectAllStudents, studentsSorted } from "../studentSlice";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { CaretDownFill, CaretUpFill } from "react-bootstrap-icons";
@@ -17,14 +12,6 @@ function TableData() {
 
   const dispatch = useDispatch();
 
-  const handleCheck = (id) => {
-    dispatch(studentMarkChecked(id));
-  };
-
-  const handleUnCheck = (id) => {
-    dispatch(studentMarkUnChecked(id));
-  };
-
   const sort = (type) => {
     dispatch(studentsSorted(type));
   };
@@ -33,12 +20,10 @@ function TableData() {
     <TableRow
       key={student.id}
       id={student.id}
-      FirstName={student.FirstName}
-      LastName={student.LastName}
+      firstName={student.firstName}
+      lastName={student.lastName}
       group={student.group}
       topic={student.topic}
-      handleCheck={() => handleCheck(student.id)}
-      handleUnCheck={() => handleUnCheck(student.id)}
     />
   ));
 
@@ -48,7 +33,7 @@ function TableData() {
         <thead>
           <tr>
             <th>#</th>
-            <th onClick={() => sort("FirstName")}>
+            <th onClick={() => sort("firstName")}>
               <div className="sort">
                 <div className="table-heading">First Name</div>
                 <div>
@@ -57,7 +42,7 @@ function TableData() {
                 </div>
               </div>
             </th>
-            <th onClick={() => sort("LastName")}>
+            <th onClick={() => sort("lastName")}>
               <div className="sort">
                 <div className="table-heading">Last Name</div>
                 <div>

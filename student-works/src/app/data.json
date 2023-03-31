@@ -2,78 +2,71 @@
     "students" : [
         {
             "id": "a0",
-            "FirstName": "Ivan",
-            "LastName": "Ivanov",
+            "firstName": "Ivan",
+            "lastName": "Ivanov",
             "group": "1020",
             "topic": "Belarusian culture",
-            "checked": false,
             "answer": "The cultural identity of Belarusians has been shaped by supreme spiritual values celebrating morality and humanity. For centuries these values have been passed over from generation to generation. These are high ideals of good and justice, respect for others, strong rejection of evil and violence. These values have been materialized in architectural and artistic traditions, unique works of music and literature."
         },
     
         {
             "id": "a1",
-            "FirstName": "Peter",
-            "LastName": "Petrov",
+            "firstName": "Peter",
+            "lastName": "Petrov",
             "group": "1025",
             "topic": "Belarusian culture",
-            "checked": false,
             "answer": "The main principles of state policy in culture are described in the Code on Culture of the Republic of Belarus. The document has set the legal, organizational, economic and social framework of cultural activities. It regulates legal relations in the preservation and development of cultural values, and the protection of historical, cultural and archaeological heritage; library and museum affairs; cinematography; folk art craft, amateur art groups; cultural events and recreation; rewards for people of culture."
         },
     
         {
             "id": "a2",
-            "FirstName": "Fedor",
-            "LastName": "Tabov",
+            "firstName": "Fedor",
+            "lastName": "Tabov",
             "group": "1020",
             "topic": "Belarusian culture",
-            "checked": false,
             "answer": "The Culture of Belarus state program for 2016-2020 is currently in progress. Its main goals are to preserve the historical memory of the Belarusian people and their national and cultural identity and traditions; to ensure active involvement of people in the cultural life of the country, to unlock the creative potential of the nation; preserve the national and cultural identity of the Belarusian diaspora."
         },
     
         {
             "id": "a3",
-            "FirstName": "Sidor",
-            "LastName": "Sidorov",
+            "firstName": "Sidor",
+            "lastName": "Sidorov",
             "group": "1025",
             "topic": "Belarusian culture",
-            "checked": false,
             "answer": "The modern cultural life of Belarus is dynamic and diverse. The country hosts a lot of art exhibitions, music, theater and film festivals. They draw national and international audiences."
         },
     
         {
             "id": "a4",
-            "FirstName": "Anna",
-            "LastName": "Prakova",
+            "firstName": "Anna",
+            "lastName": "Prakova",
             "group": "1020",
             "topic": "Belarusian culture",
-            "checked": false,
             "answer": "Today, there are about 5,600 state-run cultural institutions in Belarus (taking into account interdependent structural units and branches). These include clubs (2,536), public libraries (2,552), museums (150), theater and entertainment organizations (49, including 28 theaters, 19 concert organizations, 2 circuses), parks (12), zoos (5), methodological centers of folk art (12)."
         },
     
         {
             "id": "a5",
-            "FirstName": "Daniel",
-            "LastName": "Kirov",
+            "firstName": "Daniel",
+            "lastName": "Kirov",
             "group":"1025",
             "topic":"Belarusian culture",
-            "checked": false,
             "answer": "Preservation and successful development of the integrated system of cultural education is viewed as an important achievement."
         },
     
         {
             "id": "a6",
-            "FirstName": "Elizabeth",
-            "LastName": "Rilentoll",
+            "firstName": "Elizabeth",
+            "lastName": "Rilentoll",
             "group":"1020",
             "topic":"Belarusian culture",
-            "checked": false,
             "answer": "Belarus has a three-tier education system in the field of art, including 405 children's art schools, 20 post-secondary vocational education schools and three higher education institutions."
         },
     
         {
             "id": "a7",
-            "FirstName": "Tomath",
-            "LastName": "Fedorov",
+            "firstName": "Tomath",
+            "lastName": "Fedorov",
             "group":"1025",
             "topic":"Ecological problems",
             "answer": "Our environment is constantly changing. There is no denying that fact. However, as our environment changes, so does the need to become increasingly aware of the problems that surround it. With a massive influx of natural disasters, warming and cooling periods, different types of weather patterns and much more, people need to be aware of what types of environmental problems our planet is facing."
@@ -81,131 +74,118 @@
     
         {
             "id": "a8",
-            "FirstName": "Jack",
-            "LastName": "Wild",
+            "firstName": "Jack",
+            "lastName": "Wild",
             "group":"1020",
             "topic":"Ecological problems",
-            "checked": false,
             "answer": "Global warming has become an undisputed fact about our current livelihoods; our planet is warming up and we are definitely part of the problem. However, this isn’t the only environmental problem that we should be concerned about. All across the world, people are facing a wealth of new and challenging environmental problems every day. Some of them are small and only affect a few ecosystems, but others are drastically changing the landscape of what we already know."
         },
     
         {
             "id": "a9",
-            "FirstName": "Govard",
-            "LastName": "Cooper",
+            "firstName": "Govard",
+            "lastName": "Cooper",
             "group":"1025",
             "topic":"Ecological problems",
-            "checked": false,
             "answer": "Our planet is poised on the brink of a severe environmental crisis. Current environmental problems make us vulnerable to disasters and tragedies, now and in the future."
         },
     
         {
             "id": "a10",
-            "FirstName": "Bernard",
-            "LastName": "Scherbakov",
+            "firstName": "Bernard",
+            "lastName": "Scherbakov",
             "group":"1020",
             "topic":"Ecological problems",
-            "checked": false,
             "answer": "We are in a state of planetary emergency, with environmental problems piling up high around us. Unless we address the various issues prudently and seriously, we are surely doomed for disaster. Current environmental problems also require urgent attention."
         },
     
         {
             "id": "a11",
-            "FirstName": "Katherin",
-            "LastName": "Timofeeva",
+            "firstName": "Katherin",
+            "lastName": "Timofeeva",
             "group":"1025",
             "topic":"Ecological problems",
-            "checked": false,
             "answer": "There are 7 key types of pollution – air, water, soil, noise, radioactive, light and thermal and these are primary causes that affect our environment in many ways. All these types of pollution are interlinked and influence each other. Therefore we need to tackle all of them together."
         },
     
         {
             "id": "a12",
-            "FirstName": "Olivia",
-            "LastName": "Peterson",
+            "firstName": "Olivia",
+            "lastName": "Peterson",
             "group":"1020",
             "topic":"Ecological problems",
-            "checked": false,
             "answer": "Pollution of air, water and soil requires millions of years to recoup. Industry and motor vehicle exhaust are the number one pollutants. Heavy metals, nitrates and plastic are toxins responsible for pollution. "
         },
     
         {
             "id": "a13",
-            "FirstName": "Simon",
-            "LastName": "Delvon",
+            "firstName": "Simon",
+            "lastName": "Delvon",
             "group":"1025",
             "topic":"Ecological problems",
-            "checked": false,
             "answer": "While water pollution is caused by oil spill, acid rain, urban runoff, air pollution is caused by various gases and toxins released by industries and factories and combustion of fossil fuels; soil pollution is majorly caused by industrial waste that deprives soil from essential nutrients."
         },
     
         {
             "id": "a14",
-            "FirstName": "Boris",
-            "LastName": "Shelohov",
+            "firstName": "Boris",
+            "lastName": "Shelohov",
             "group":"1020",
             "topic":"Live on other planets",
-            "checked": false,
             "answer": "The ultimate goal of NASA's exoplanet program is to find unmistakable signs of current life on a planet beyond Earth. How soon that can happen depends on two unknowns: the prevalence of life in the galaxy and how lucky we get as we take those first, tentative, exploratory steps."
         },
     
         {
             "id": "a15",
-            "FirstName": "Larisa",
-            "LastName": "Debtova",
+            "firstName": "Larisa",
+            "lastName": "Debtova",
             "group":"1025",
             "topic":"Live on other planets",
-            "checked": false,
             "answer": "Our early planet finding missions, such as NASA’s Kepler and its extended incarnation, K2, or the coming James Webb Space Telescope, could yield bare bones evidence of the potentially habitable worlds. James Webb, designed in part to investigate gas giants and super Earths, might find an outsized version of our planet. NASA's Nancy Grace Roman Space Telescope or the Wide-Field Infrared Survey Telescope, could zero in on a distant planet’s reflected light to detect the signatures of oxygen, water vapor, or some other powerful indication of possible life."
         },
     
         {
             "id": "a16",
-            "FirstName": "Alvira",
-            "LastName": "Berengova",
+            "firstName": "Alvira",
+            "lastName": "Berengova",
             "group":"1020",
             "topic":"Live on other planets",
-            "checked": false,
             "answer": "But unless we get lucky, the search for signs of life could take decades. Discovering another blue-white marble hidden in the star field, like a sand grain on the beach, will probably require an even larger imaging telescope. Designs are already underway for that next-generation planet finder, to be sent aloft in the 2030s or 2040s."
         },
     
         {
             "id": "a17",
-            "FirstName": "Daria",
-            "LastName": "Kurintsova",
+            "firstName": "Daria",
+            "lastName": "Kurintsova",
             "group":"1025",
             "topic":"Live on other planets",
-            "checked": false,
             "answer": "The ultimate goal of NASA's exoplanet program is to find unmistakable signs of current life on a planet beyond Earth. How soon that can happen depends on two unknowns: the prevalence of life in the galaxy and how lucky we get as we take those first, tentative, exploratory steps."
         },
     
         {
             "id": "a18",
-            "FirstName": "Polina",
-            "LastName": "Belousova",
+            "firstName": "Polina",
+            "lastName": "Belousova",
             "group":"1020",
             "topic":"Live on other planets",
-            "checked": false,
             "answer": "MIT physics professor Sara Seager looks for possible chemical combinations that could signal the presence of alien life. She and her biochemistry colleagues first focused on the six main elements associated with life on Earth: carbon, nitrogen, oxygen, phosphorous, sulfur and hydrogen."
         },
     
         {
             "id": "a19",
-            "FirstName": "Arcadiy",
-            "LastName": "Bereztsov",
+            "firstName": "Arcadiy",
+            "lastName": "Bereztsov",
             "group":"1025",
             "topic":"Live on other planets",
-            "checked": false,
             "answer": "“We’re going to have so few planets, we have to get lucky,” Seager said. “I don’t want to miss anything. I don’t want to miss it because we weren’t smart enough to think of some molecule.”"
         },
     
         {
             "id": "a20",
-            "FirstName": "Vitaliy",
-            "LastName": "Zaborotsky",
+            "firstName": "Vitaliy",
+            "lastName": "Zaborotsky",
             "group":"1020",
             "topic":"Live on other planets",
-            "checked": false,
             "answer": "To find out how about the advanced, space-based telescope technology being developed at NASA to search for life among the stars, read Inventing the Future."
         }
     ]

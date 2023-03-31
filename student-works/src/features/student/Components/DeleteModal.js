@@ -69,7 +69,7 @@ function DeleteModal(props) {
 }
 
 DeleteModal.propTypes = {
-  amount: PropTypes.string,
+  amount: PropTypes.number,
   toggleDelete: PropTypes.func,
   deleteModal: PropTypes.bool,
   deleteStudent: PropTypes.func,

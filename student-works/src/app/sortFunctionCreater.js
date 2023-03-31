@@ -1,32 +1,16 @@
-import {SortById, SortByLastNameASC, SortByLastNameDESC, SortByFirstNameASC, SortByFirstNameDESC} from './sortFunctons'
+import { sortASC, sortDESC } from "./sortFunctons";
 
 function sortFunctionCreater(count, column) {
-    switch (column) {
-        case "FirstName":
-            switch(count) {
-                case 0:
-                    return SortById;
-                case 1:
-                    return SortByFirstNameASC;
-                case 2:
-                    return SortByFirstNameDESC;
-                default:
-                   return SortById;
-            }
-        case "LastName":
-            switch(count) {
-                case 0:
-                    return SortById;
-                case 1:
-                    return SortByLastNameASC;
-                case 2:
-                    return SortByLastNameDESC;
-                default:
-                    return SortById;
-            }
-        default:
-            return SortById;
-    }
+  switch (count) {
+    case 0:
+      return sortASC("id");
+    case 1:
+      return sortASC(column);
+    case 2:
+      return sortDESC(column);
+    default:
+      return sortASC("id");
+  }
 }
 
 export default sortFunctionCreater;

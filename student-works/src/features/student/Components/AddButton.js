@@ -21,11 +21,10 @@ function AddButton() {
     setBufferStudent({
       ...bufferStudent,
       id: nanoid(),
-      FirstName: "",
-      LastName: "",
+      firstName: "",
+      lastName: "",
       group: "",
       topic: "",
-      checked: false,
       answer: "",
     });
     toggleAdd();

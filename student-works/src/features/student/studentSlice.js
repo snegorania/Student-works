@@ -1,11 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 import sortFunctionCreater from "../../app/sortFunctionCreater";
+import filter from "../../app/filter";
 
 const initialState = {
   students: [],
+  checked: [],
   column: "",
-  counterL: 0,
-  counterF: 0,
+  counter: 0,
   filters: {
     group: "",
     topic: "",
@@ -19,28 +20,18 @@ const studentSlice = createSlice({
     studentAdded: {
       reducer(state, action) {
         state.students.push(action.payload);
-        if (state.column === "LastName") {
-          state.students.sort(
-            sortFunctionCreater(state.counterL, state.column)
-          );
-        } else {
-          state.students.sort(
-            sortFunctionCreater(state.counterF, state.column)
-          );
-        }
+
+        state.students.sort(sortFunctionCreater(state.counter, state.column));
       },
     },
 
     studentDeleted(state) {
-      let arr = state.students.filter((el) => el.checked);
-      for (let i = 0; i < arr.length; i++) {
-        state.students.splice(state.students.indexOf(arr[i]), 1);
-      }
-      if (state.column === "LastName") {
-        state.students.sort(sortFunctionCreater(state.counterL, state.column));
-      } else {
-        state.students.sort(sortFunctionCreater(state.counterF, state.column));
-      }
+      state.students = state.students.filter(
+        (el) => !state.checked.includes(el.id)
+      );
+      state.checked = [];
+
+      state.students.sort(sortFunctionCreater(state.counter, state.column));
     },
 
     studentEdited: {
@@ -52,15 +43,8 @@ const studentSlice = createSlice({
           1,
           action.payload.student
         );
-        if (state.column === "LastName") {
-          state.students.sort(
-            sortFunctionCreater(state.counterL, state.column)
-          );
-        } else {
-          state.students.sort(
-            sortFunctionCreater(state.counterF, state.column)
-          );
-        }
+
+        state.students.sort(sortFunctionCreater(state.counter, state.column));
       },
 
       prepare(student) {
@@ -76,59 +60,40 @@ const studentSlice = createSlice({
     studentsFromLocalStorage(state) {
       state.length = 0;
       let arr = JSON.parse(localStorage.getItem("students"));
-      for (let i = 0; i < arr.length; i++) {
-        state.students.push(arr[i]);
-      }
+      arr.forEach((el) => {
+        state.students.push(el);
+      });
 
-      if (state.column === "LastName") {
-        state.students.sort(sortFunctionCreater(state.counterL, state.column));
-      } else {
-        state.students.sort(sortFunctionCreater(state.counterF, state.column));
-      }
+      state.students.sort(sortFunctionCreater(state.counter, state.column));
     },
 
     studentsLoadToLocalStorage(state) {
-      localStorage.clear();
       localStorage.setItem("students", JSON.stringify(state.students));
     },
 
     studentsSorted(state, action) {
-      state.column = action.payload;
-      if (action.payload === "LastName") {
-        if (state.counterL === 2) {
-          state.counterL = 0;
-        } else {
-          state.counterL++;
-        }
-        state.students.sort(sortFunctionCreater(state.counterL, state.column));
-      } else {
-        if (state.counterF === 2) {
-          state.counterF = 0;
-        } else {
-          state.counterF++;
-        }
-        state.students.sort(sortFunctionCreater(state.counterF, state.column));
+      if (!(state.column === action.payload)) {
+        state.counter = 0;
+        state.column = action.payload;
       }
+      if (state.counter === 2) {
+        state.counter = 0;
+      } else {
+        state.counter++;
+      }
+      state.students.sort(sortFunctionCreater(state.counter, state.column));
     },
 
     studentsReset(state) {
-      state.students.length = 0;
+      state.students = initialState;
     },
 
-    studentMarkChecked(state, action) {
-      state.students[
-        state.students.indexOf(
-          state.students.find((el) => el.id === action.payload)
-        )
-      ].checked = true;
-    },
-
-    studentMarkUnChecked(state, action) {
-      state.students[
-        state.students.indexOf(
-          state.students.find((el) => el.id === action.payload)
-        )
-      ].checked = false;
+    studentCheck(state, action) {
+      if (state.checked.includes(action.payload)) {
+        state.checked.splice(state.checked.indexOf(action.payload), 1);
+      } else {
+        state.checked.push(action.payload);
+      }
     },
 
     studentsFilterGroup(state, action) {
@@ -141,30 +106,17 @@ const studentSlice = createSlice({
   },
 });
 
-export const selectAllStudents = (state) => {
-  if (state.students.filters.group || state.students.filters.topic) {
-    return state.students.students.filter(
-      (el) =>
-        (state.students.filters.group &&
-          state.students.filters.topic &&
-          state.students.filters.topic === el.topic &&
-          state.students.filters.group === el.group) ||
-        (!(state.students.filters.group && state.students.filters.topic) &&
-          ((state.students.filters.group &&
-            el.group === state.students.filters.group) ||
-            (state.students.filters.topic &&
-              el.topic === state.students.filters.topic)))
-    );
-  } else {
-    return state.students.students;
-  }
-};
+export const selectAllStudents = (state) =>
+  filter(
+    state.students.students,
+    state.students.filters.topic,
+    state.students.filters.group
+  );
 
 export const selectStudentById = (state, id) =>
   state.students.students.find((el) => el.id === id);
 
-export const selectCheckedLength = (state) =>
-  state.students.students.filter((el) => el.checked).length;
+export const selectCheckedLength = (state) => state.students.checked.length;
 
 export const {
   studentAdded,
@@ -174,8 +126,7 @@ export const {
   studentsFromLocalStorage,
   studentsLoadToLocalStorage,
   studentsSorted,
-  studentMarkChecked,
-  studentMarkUnChecked,
+  studentCheck,
   studentsFilterGroup,
   studentsFilterTopic,
 } = studentSlice.actions;

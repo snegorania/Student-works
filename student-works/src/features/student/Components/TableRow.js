@@ -1,30 +1,29 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { studentCheck } from "../studentSlice";
 import EditButton from "./EditButton";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../../../App.css";
 
 function TableRow(props) {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-  function handleClick(e) {
-    if (e.target.checked) {
-      props.handleCheck();
-    } else {
-      props.handleUnCheck();
-    }
-  }
+  const handleClick = (id) => {
+    dispatch(studentCheck(id));
+  };
 
   return (
     <tr key={props.id} data-testid="table-row" className="navigation">
       <th scope="row">
-        <input type="checkbox" onChange={handleClick} />
+        <input type="checkbox" onChange={() => handleClick(props.id)} />
       </th>
       <td onClick={() => navigate(`/element/${props.id}`)}>
-        {props.FirstName}
+        {props.firstName}
       </td>
-      <td onClick={() => navigate(`/element/${props.id}`)}>{props.LastName}</td>
+      <td onClick={() => navigate(`/element/${props.id}`)}>{props.lastName}</td>
       <td onClick={() => navigate(`/element/${props.id}`)}>{props.group}</td>
       <td onClick={() => navigate(`/element/${props.id}`)}>{props.topic}</td>
       <EditButton id={props.id} />
@@ -34,8 +33,8 @@ function TableRow(props) {
 
 TableRow.propTypes = {
   id: PropTypes.string,
-  FirstName: PropTypes.string,
-  LastName: PropTypes.string,
+  firstName: PropTypes.string,
+  lastName: PropTypes.string,
   group: PropTypes.string,
   topic: PropTypes.string,
   handleCheck: PropTypes.func,

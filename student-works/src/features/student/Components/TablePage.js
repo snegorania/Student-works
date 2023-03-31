@@ -11,24 +11,22 @@ import DeleteButton from "./DeleteButton";
 
 function TablePage() {
   return (
-    <>
-      <div className="wrapper">
-        <div className="buttons">
-          <div className="buttons-left">
-            <AddButton />
-            <FilterGroup />
-            <FilterTopic />
-            <ResetButton />
-          </div>
-          <div className="buttons-right">
-            <LoadButton />
-            <SaveButton />
-            <DeleteButton />
-          </div>
+    <div className="wrapper">
+      <div className="buttons">
+        <div className="buttons-left">
+          <AddButton />
+          <FilterGroup />
+          <FilterTopic />
+          <ResetButton />
         </div>
-        <TableData />
+        <div className="buttons-right">
+          <LoadButton />
+          <SaveButton />
+          <DeleteButton />
+        </div>
       </div>
-    </>
+      <TableData />
+    </div>
   );
 }
 

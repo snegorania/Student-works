@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import logo from "./logo.png";
+import React from "react";
 import "../App.css";
 import { Navbar, NavbarText } from "reactstrap";
 

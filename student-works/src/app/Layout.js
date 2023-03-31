@@ -7,16 +7,22 @@ import "bootstrap/dist/css/bootstrap.min.css";
 function Layout() {
   return (
     <>
-      <NavigationBar />
-      <div className="bg-info sidebar">
+      <header>
+        <NavigationBar />
+      </header>
+      <aside className="bg-info sidebar">
         <ListGroup className="list">
           <ListGroupItem color="info">Students</ListGroupItem>
           <ListGroupItem color="info">Groups</ListGroupItem>
           <ListGroupItem color="info">Topics</ListGroupItem>
         </ListGroup>
-      </div>
-      <Outlet />
-      <Footer />
+      </aside>
+      <main>
+        <Outlet />
+      </main>
+      <footer>
+        <Footer />
+      </footer>
     </>
   );
 }
