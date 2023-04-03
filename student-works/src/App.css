@@ -73,4 +73,11 @@
   max-width: 1000px;
   margin-left: 350px;
   padding-top: 100px;
+  padding-bottom: 70px;
+}
+
+.spinner-edit {
+  position: fixed;
+  top: 350px;
+  left: 800px;
 }
