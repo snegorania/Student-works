@@ -9,6 +9,7 @@ import {
   ModalFooter,
   Spinner,
 } from "reactstrap";
+import "../../../App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function DeleteModal(props) {
@@ -44,9 +45,11 @@ function DeleteModal(props) {
       ) : (
         <div>
           {loading ? (
-            <Spinner className="m-5" color="info">
-              Loading...
-            </Spinner>
+            <div className="spinner-modal">
+              <Spinner className="m-5" color="info">
+                Loading...
+              </Spinner>
+            </div>
           ) : (
             <div>
               <ModalBody>

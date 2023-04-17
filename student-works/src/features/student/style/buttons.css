@@ -1,0 +1,152 @@
+.buttons-left {
+  display: flex;
+  justify-content: space-between;
+  height: 40px;
+  width: 500px;
+}
+
+.buttons-right {
+  display: flex;
+  justify-content: space-between;
+  height: 40px;
+  width: 200px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 50px;
+}
+
+.add-button {
+  display: block;
+  width: 60px;
+  height: 40px;
+  background-color: #34c924;
+  border: 1px solid #34c924;
+  border-radius: 10px;
+}
+
+.add-button:hover {
+  background-color: #138808;
+  border: 1px solid #138808;
+}
+
+.add-button:active {
+  background-color: #004524;
+  border: 1px solid #004524;
+}
+
+.add-icon {
+  color: #f5f5f5;
+  width: 23px;
+  height: 23px;
+}
+
+.select-filter-group {
+  display: block;
+  height: 40px;
+  width: 150px;
+  padding-left: 10px;
+  border-radius: 10px;
+  border: 1px solid #a5a5a5;
+}
+
+.select-filter-group:hover {
+  cursor: pointer;
+}
+
+.select-filter-topic {
+  display: block;
+  height: 40px;
+  width: 200px;
+  padding-left: 10px;
+  border-radius: 10px;
+  border: 1px solid #a5a5a5;
+}
+
+.select-filter-topic:hover {
+  cursor: pointer;
+}
+
+.reset-button {
+  display: block;
+  width: 70px;
+  height: 40px;
+  background-color: #ed760e;
+  border: 1px solid #ed760e;
+  border-radius: 10px;
+  color: #f5f5f5;
+}
+
+.reset-button:hover {
+  background-color: #f4a900;
+  border: 1px solid #f4a900;
+}
+
+.reset-button:active {
+  background-color: #cc5500;
+  border: 1px solid #cc5500;
+}
+
+.load-button {
+  display: block;
+  width: 50px;
+  height: 40px;
+  background-color: #ffcf40;
+  border: 1px solid #ffcf40;
+  border-radius: 10px;
+}
+
+.load-button:hover {
+  background-color: #ffd700;
+  border: 1px solid #ffd700;
+}
+
+.load-button:active {
+  background-color: #ffba00;
+  border: 1px solid #ffba00;
+}
+
+.save-button {
+  display: block;
+  width: 60px;
+  height: 40px;
+  background-color: #660066;
+  border: 1px solid #660066;
+  border-radius: 10px;
+  color: #f5f5f5;
+}
+
+.save-button:hover {
+  background-color: #8a2be2;
+  border: 1px solid #8a2be2;
+}
+
+.save-button:active {
+  background-color: #6c4675;
+  border: 1px solid #6c4675;
+}
+
+.delete-button {
+  display: block;
+  width: 70px;
+  height: 40px;
+  background-color: #ee204d;
+  border: 1px solid #ee204d;
+  border-radius: 10px;
+}
+
+.delete-button:hover {
+  background-color: #c10020;
+  border: 1px solid #c10020;
+}
+
+.delete-button:active {
+  background-color: #5e2129;
+  border: 1px solid #5e2129;
+}
+
+.delete-icon {
+  color: #f5f5f5;
+}

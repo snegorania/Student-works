@@ -1,83 +1,13 @@
-.decor {
-  text-decoration: none;
-  color: black;
-}
-
 .error {
   color: red;
-}
-
-.arrow {
-  display: block;
-  height: 7px;
-  width: 7px;
-}
-
-.sort {
-  display: flex;
-  align-items: center;
-}
-
-.table-heading {
-  margin-right: 10px;
-}
-
-.navigation:hover {
-  cursor: pointer;
-}
-
-.logo {
-  display: flex;
-}
-
-.logo-heading {
-  font-size: 32px;
-  padding-left: 10px;
-}
-
-.buttons-left {
-  display: flex;
-  justify-content: space-between;
-  height: 40px;
-  width: 470px;
-}
-
-.buttons-right {
-  display: flex;
-  justify-content: space-between;
-  height: 40px;
-  width: 150px;
-}
-
-.buttons {
-  display: flex;
-  justify-content: space-between;
-}
-
-.table {
-  max-width: 1000px;
-  margin-top: 20px;
-}
-
-.sidebar {
-  position: fixed;
-  height: 100vh;
-  width: 250px;
-}
-
-.list {
-  margin-top: 70px;
-}
-
-.wrapper {
-  max-width: 1000px;
-  margin-left: 350px;
-  padding-top: 100px;
-  padding-bottom: 70px;
 }
 
 .spinner-edit {
   position: fixed;
   top: 350px;
   left: 800px;
+}
+
+.spinner-modal {
+  padding-left: 170px;
 }

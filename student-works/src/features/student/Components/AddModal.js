@@ -84,9 +84,11 @@ function AddModal(props) {
       ) : (
         <div>
           {loading ? (
-            <Spinner className="m-5" color="info">
-              Loading...
-            </Spinner>
+            <div className="spinner-modal">
+              <Spinner className="m-5" color="info">
+                Loading...
+              </Spinner>
+            </div>
           ) : (
             <Formik
               initialValues={initialValues}
@@ -182,7 +184,9 @@ function AddModal(props) {
                                         field.value === "Belarusian culture"
                                       }
                                     />
-                                    <Label check>Belarusian culture</Label>
+                                    <Label htmlFor="BelarusianCulture" check>
+                                      Belarusian culture
+                                    </Label>
                                   </FormGroup>
                                   <FormGroup check>
                                     <Input
@@ -194,7 +198,9 @@ function AddModal(props) {
                                         field.value === "Ecological problems"
                                       }
                                     />
-                                    <Label check>Ecological problems</Label>
+                                    <Label htmlFor="EcologicalProblems" check>
+                                      Ecological problems
+                                    </Label>
                                   </FormGroup>
                                   <FormGroup check>
                                     <Input
@@ -206,7 +212,9 @@ function AddModal(props) {
                                         field.value === "Live on other planets"
                                       }
                                     />
-                                    <Label check>Live on other planets</Label>
+                                    <Label htmlFor="LiveOnOtherPlanets" check>
+                                      Live on other planets
+                                    </Label>
                                   </FormGroup>
                                 </Col>
                                 {meta.touched && meta.error ? (

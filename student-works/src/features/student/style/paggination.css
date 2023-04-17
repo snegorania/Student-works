@@ -1,0 +1,59 @@
+.paggination {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 60px;
+  padding-bottom: 20px;
+}
+
+.paggination-label {
+  display: block;
+  font-size: 20px;
+}
+
+.paggination-select {
+  display: block;
+  width: 60px;
+  height: 35px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  border-radius: 10px;
+}
+
+.paggination-select:hover {
+  cursor: pointer;
+}
+
+.paggination-label-select {
+  width: 220px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.paggination-pages {
+  font-size: 20px;
+}
+
+.paggination-button {
+  display: block;
+  width: 40px;
+  height: 40px;
+  background-color: #f0f8ff;
+  border: 2px solid #1164b4;
+  border-radius: 20px;
+}
+
+.paggination-button:hover {
+  background-color: #ace5ee;
+}
+
+.paggination-icon {
+  color: #1164b4;
+}
+
+.paggination-buttons {
+  width: 140px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

@@ -1,13 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
 import { studentEdited } from "../studentSlice";
-import { Label, FormGroup, Input, Col, Button, Spinner } from "reactstrap";
+import { Spinner } from "reactstrap";
+import "../style/editPage.css";
 
 class WorkPageV2 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      student: {},
       studentForm: {},
       isSpinner: false,
     };
@@ -22,7 +22,7 @@ class WorkPageV2 extends React.Component {
   }
 
   componentWillUnmount() {
-    this.setState({ student: {}, studentForm: {} });
+    this.setState({ studentForm: {} });
   }
 
   handleChange({ target: { name, value } }) {
@@ -31,137 +31,153 @@ class WorkPageV2 extends React.Component {
     });
   }
 
-  handleClick(e) {
+  handleClick() {
     this.props.edit(this.state.studentForm);
     this.setState({ isSpinner: true });
-    setTimeout(() => this.setState({ isSpinner: false }), 3000);
     this.setState({ student: this.state.studentForm });
-    e.preventDefault();
+    setTimeout(() => this.setState({ isSpinner: false }), 3000);
   }
 
   render() {
-    const { id, firstName, lastName, group, topic, answer } =
-      this.state.student;
     return (
-      <div className="wrapper">
+      <div>
         {this.state.isSpinner ? (
           <div className="spinner-edit">
             <Spinner />
           </div>
         ) : (
           <div>
-            <h2>Card</h2>
-            <ul data-testid="list">
-              <li>id: {id}</li>
-              <li>First name: {firstName}</li>
-              <li>Last name: {lastName}</li>
-              <li>group: {group}</li>
-              <li>topic: {topic}</li>
-              <li>answer:</li>
-              <p>{answer}</p>
-            </ul>
-            <form>
-              <h2>Edit form</h2>
-              <FormGroup>
-                <Label htmlFor="firstName">First name</Label>
-                <Input
-                  id="firstName"
-                  placeholder="First name"
-                  type="text"
-                  name="firstName"
-                  onChange={this.handleChange}
-                  value={this.state.studentForm.firstName}
-                />
-              </FormGroup>
-              <FormGroup>
-                <Label htmlFor="lastName">Last name</Label>
-                <Input
-                  id="lastName"
-                  placeholder="Last name"
-                  type="text"
-                  name="lastName"
-                  onChange={this.handleChange}
-                  value={this.state.studentForm.lastName}
-                />
-              </FormGroup>
-              <FormGroup>
-                <Label for="group">Group</Label>
-                <Input
-                  id="group"
-                  type="select"
-                  name="group"
-                  onChange={this.handleChange}
-                  value={this.state.studentForm.group}
-                >
-                  <option value="">Select group</option>
-                  <option value="1020">1020</option>
-                  <option value="1025">1025</option>
-                </Input>
-              </FormGroup>
-              <FormGroup>
-                <legend className="col-form-label col-sm-2">Topic</legend>
-                <Col sm={10}>
-                  <FormGroup check>
-                    <Input
-                      id="BelarusianCulture"
-                      type="radio"
-                      name="topic"
-                      value="Belarusian culture"
-                      onChange={this.handleChange}
-                      checked={
-                        "Belarusian culture" === this.state.studentForm.topic
-                      }
-                    />
-                    <Label check htmlFor="BelarusianCulture">
-                      Belarusian culture
-                    </Label>
-                  </FormGroup>
-                  <FormGroup check>
-                    <Input
-                      id="EcologicalProblems"
-                      type="radio"
-                      name="topic"
-                      value="Ecological problems"
-                      onChange={this.handleChange}
-                      checked={
-                        "Ecological problems" === this.state.studentForm.topic
-                      }
-                    />
-                    <Label check htmlFor="EcologicalProblems">
-                      Ecological problems
-                    </Label>
-                  </FormGroup>
-                  <FormGroup check>
-                    <Input
-                      id="LiveOnOtherPlanets"
-                      type="radio"
-                      name="topic"
-                      value="Live on other planets"
-                      onChange={this.handleChange}
-                      checked={
-                        "Live on other planets" === this.state.studentForm.topic
-                      }
-                    />
-                    <Label check htmlFor="LiveOnOtherPlanets">
-                      Live on other planets
-                    </Label>
-                  </FormGroup>
-                </Col>
-              </FormGroup>
-              <FormGroup>
-                <Label for="answer">Text Area</Label>
-                <Input
+            <div>
+              <h2 className="header-edit">Edit form</h2>
+              <h3>Student data</h3>
+              <div className="student-data">
+                <div className="form-part">
+                  <label className="label-text" htmlFor="firstName">
+                    First name
+                  </label>
+                  <input
+                    id="firstName"
+                    className="text-input"
+                    placeholder="First name"
+                    type="text"
+                    name="firstName"
+                    onChange={this.handleChange}
+                    value={this.state.studentForm.firstName}
+                  />
+                </div>
+                <div className="form-part">
+                  <label className="label-text" htmlFor="lastName">
+                    Last name
+                  </label>
+                  <input
+                    id="lastName"
+                    className="text-input"
+                    placeholder="Last name"
+                    type="text"
+                    name="lastName"
+                    onChange={this.handleChange}
+                    value={this.state.studentForm.lastName}
+                  />
+                </div>
+                <div className="form-part">
+                  <label className="label-text" for="group">
+                    Group
+                  </label>
+                  <select
+                    id="group"
+                    className="select-group"
+                    type="select"
+                    name="group"
+                    onChange={this.handleChange}
+                    value={this.state.studentForm.group}
+                  >
+                    <option value="">Select group</option>
+                    <option value="1020">1020</option>
+                    <option value="1025">1025</option>
+                  </select>
+                </div>
+              </div>
+              <h3>Answer part</h3>
+              <div className="form-part topic">
+                <legend className="label-text topic-label">Topic:</legend>
+                <div className="radio-control">
+                  <input
+                    id="BelarusianCulture"
+                    className="input-radio"
+                    type="radio"
+                    name="topic"
+                    value="Belarusian culture"
+                    onChange={this.handleChange}
+                    checked={
+                      "Belarusian culture" === this.state.studentForm.topic
+                    }
+                  />
+                  <label
+                    className="label-radio"
+                    check
+                    htmlFor="BelarusianCulture"
+                  >
+                    Belarusian culture
+                  </label>
+                </div>
+                <div className="radio-control">
+                  <input
+                    id="EcologicalProblems"
+                    className="input-radio"
+                    type="radio"
+                    name="topic"
+                    value="Ecological problems"
+                    onChange={this.handleChange}
+                    checked={
+                      "Ecological problems" === this.state.studentForm.topic
+                    }
+                  />
+                  <label
+                    check
+                    htmlFor="EcologicalProblems"
+                    className="label-radio"
+                  >
+                    Ecological problems
+                  </label>
+                </div>
+                <div className="radio-control">
+                  <input
+                    id="LiveOnOtherPlanets"
+                    className="input-radio"
+                    type="radio"
+                    name="topic"
+                    value="Live on other planets"
+                    onChange={this.handleChange}
+                    checked={
+                      "Live on other planets" === this.state.studentForm.topic
+                    }
+                  />
+                  <label
+                    check
+                    htmlFor="LiveOnOtherPlanets"
+                    className="label-radio"
+                  >
+                    Live on other planets
+                  </label>
+                </div>
+              </div>
+              <div className="form-part">
+                <label className="label-text" htmlFor="answer">
+                  Answer
+                </label>
+                <textarea
                   id="answer"
+                  className="textarea-input"
                   placeholder="Answer"
                   type="textarea"
                   name="answer"
                   value={this.state.studentForm.answer}
                 />
-              </FormGroup>
-              <Button color="primary" onClick={this.handleClick}>
+              </div>
+              <button className="edit-submit" onClick={this.handleClick}>
                 Submit
-              </Button>
-            </form>
+              </button>
+            </div>
           </div>
         )}
       </div>
@@ -169,11 +185,9 @@ class WorkPageV2 extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    students: state.students.students,
-  };
-};
+const mapStateToProps = (state) => ({
+  students: state.students.students,
+});
 
 const mapDispatchToProps = (dispatch) => {
   return {

@@ -1,12 +1,11 @@
 import React from "react";
 import { useState } from "react";
-import { Button } from "reactstrap";
 import DeleteModal from "./DeleteModal";
-import "bootstrap/dist/css/bootstrap.min.css";
 import { studentDeleted, selectCheckedLength } from "../studentSlice";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { TrashFill } from "react-bootstrap-icons";
+import "../style/buttons.css";
 
 function DeleteButton() {
   const [deleteModal, setDeleteModal] = useState(false);
@@ -20,9 +19,9 @@ function DeleteButton() {
 
   return (
     <>
-      <Button outline onClick={toggleDelete}>
-        <TrashFill />
-      </Button>
+      <button type="button" className="delete-button" onClick={toggleDelete}>
+        <TrashFill className="delete-icon" />
+      </button>
       <DeleteModal
         amount={checkedLength}
         toggleDelete={toggleDelete}

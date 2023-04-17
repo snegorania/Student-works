@@ -1,13 +1,10 @@
 import React from "react";
 import { useState } from "react";
-import { Button } from "reactstrap";
 import { studentAdded } from "../studentSlice";
-import "bootstrap/dist/css/bootstrap.min.css";
 import AddModal from "./AddModal";
 import { useDispatch } from "react-redux";
 import { nanoid } from "@reduxjs/toolkit";
 import { PersonPlus } from "react-bootstrap-icons";
-import "../../../App.css";
 
 function AddButton() {
   const [bufferStudent, setBufferStudent] = useState({});
@@ -36,9 +33,9 @@ function AddButton() {
 
   return (
     <div>
-      <Button outline onClick={addClick}>
-        <PersonPlus />
-      </Button>
+      <button type="button" className="add-button" onClick={addClick}>
+        <PersonPlus className="add-icon" />
+      </button>
       <AddModal
         toggleAdd={toggleAdd}
         addModal={addModal}

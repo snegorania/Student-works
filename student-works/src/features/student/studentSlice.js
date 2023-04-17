@@ -1,5 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import sortFunctionCreater from "../../app/sortFunctionCreater";
+import pagination from "../../app/pagination";
+import search from "../../app/search";
 import filter from "../../app/filter";
 
 const initialState = {
@@ -11,6 +13,9 @@ const initialState = {
     group: "",
     topic: "",
   },
+  searchText: "",
+  page: 1,
+  rows: 5,
 };
 
 const studentSlice = createSlice({
@@ -58,7 +63,8 @@ const studentSlice = createSlice({
     },
 
     studentsFromLocalStorage(state) {
-      state.length = 0;
+      state.page = 1;
+      state.students = [];
       let arr = JSON.parse(localStorage.getItem("students"));
       arr.forEach((el) => {
         state.students.push(el);
@@ -68,10 +74,13 @@ const studentSlice = createSlice({
     },
 
     studentsLoadToLocalStorage(state) {
+      state.page = 1;
       localStorage.setItem("students", JSON.stringify(state.students));
     },
 
     studentsSorted(state, action) {
+      state.page = 1;
+      state.page = 1;
       if (!(state.column === action.payload)) {
         state.counter = 0;
         state.column = action.payload;
@@ -85,7 +94,8 @@ const studentSlice = createSlice({
     },
 
     studentsReset(state) {
-      state.students = initialState;
+      state.page = 1;
+      state.students = [];
     },
 
     studentCheck(state, action) {
@@ -97,22 +107,57 @@ const studentSlice = createSlice({
     },
 
     studentsFilterGroup(state, action) {
+      state.page = 1;
       state.filters.group = action.payload;
     },
 
     studentsFilterTopic(state, action) {
+      state.page = 1;
       state.filters.topic = action.payload;
+    },
+
+    changePage(state, action) {
+      if (
+        action.payload.isDirectionNext &&
+        state.page < action.payload.maxPage
+      ) {
+        state.page++;
+      }
+
+      if (!action.payload.isDirectionNext && state.page > 1) {
+        state.page--;
+      }
+    },
+
+    studentsSetNum(state, action) {
+      state.page = 1;
+      if (action.payload) {
+        state.rows = Number(action.payload);
+      } else {
+        state.rows = 5;
+      }
+    },
+
+    studentsSearch(state, action) {
+      state.page = 1;
+      state.searchText = action.payload;
     },
   },
 });
 
 export const selectAllStudents = (state) =>
-  filter(
-    state.students.students,
-    state.students.filters.topic,
-    state.students.filters.group
+  pagination(
+    search(
+      filter(
+        state.students.students,
+        state.students.filters.topic,
+        state.students.filters.group
+      ),
+      state.students.searchText
+    ),
+    state.students.rows,
+    state.students.page
   );
-
 export const selectStudentById = (state, id) =>
   state.students.students.find((el) => el.id === id);
 
@@ -129,6 +174,10 @@ export const {
   studentCheck,
   studentsFilterGroup,
   studentsFilterTopic,
+  changePage,
+  studentsSetNum,
+  studentsSearch,
+  clearSearch,
 } = studentSlice.actions;
 
 export default studentSlice.reducer;

@@ -1,0 +1,91 @@
+.header-edit {
+  padding-left: 340px;
+  padding-bottom: 20px;
+}
+
+.label-text {
+  display: block;
+  padding-bottom: 10px;
+  width: 100px;
+  color: #000000;
+  font-size: 18px;
+}
+
+.text-input {
+  display: block;
+  width: 300px;
+  height: 40px;
+  border-radius: 10px;
+  padding-left: 10px;
+}
+
+.select-group {
+  display: block;
+  width: 150px;
+  height: 40px;
+  border-radius: 10px;
+  padding-left: 10px;
+}
+
+.form-part {
+  margin-bottom: 20px;
+}
+
+.student-data {
+  width: 800px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.textarea-input {
+  display: block;
+  width: 800px;
+  height: 250px;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.radio-control {
+  display: flex;
+  align-items: center;
+}
+
+.input-radio {
+  display: block;
+}
+
+.label-radio {
+  display: block;
+  font-size: 18px;
+  padding-left: 10px;
+}
+
+.topic {
+  display: flex;
+  width: 800px;
+  justify-content: space-between;
+}
+
+.topic-label {
+  padding-top: 12px;
+}
+
+.edit-submit {
+  display: block;
+  width: 800px;
+  height: 40px;
+  background-color: #34c924;
+  border: 1px solid #34c924;
+  border-radius: 10px;
+  color: #ffffff;
+}
+
+.edit-submit:hover {
+  background-color: #138808;
+  border: 1px solid #138808;
+}
+
+.edit-submit:active {
+  background-color: #004524;
+  border: 1px solid #004524;
+}

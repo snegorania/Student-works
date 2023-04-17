@@ -1,9 +1,8 @@
 import React from "react";
-import { Button } from "reactstrap";
-import "bootstrap/dist/css/bootstrap.min.css";
 import { studentsFromLocalStorage } from "../studentSlice";
 import { useDispatch } from "react-redux";
 import { ArrowUp } from "react-bootstrap-icons";
+import "../style/buttons.css";
 
 function LoadButton() {
   const dispatch = useDispatch();
@@ -13,9 +12,9 @@ function LoadButton() {
   };
 
   return (
-    <Button outline onClick={loadFromStorage}>
-      <ArrowUp />
-    </Button>
+    <button type="button" className="load-button" onClick={loadFromStorage}>
+      <ArrowUp className="load-icon" />
+    </button>
   );
 }
 

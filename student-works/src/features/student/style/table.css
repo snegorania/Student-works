@@ -1,0 +1,47 @@
+.form-table {
+  width: 100%;
+  box-shadow: 10px 10px 5px #e9e9e9;
+}
+
+.form-table th,
+tr {
+  height: 35px;
+}
+
+.form-table th,
+tr:nth-child(even) {
+  background-color: #e5f4ff;
+}
+
+.form-table td,
+th {
+  text-align: center;
+}
+
+.form-table tr:hover {
+  background-color: #e9e9e9;
+}
+
+.sort {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sort:hover {
+  cursor: pointer;
+}
+
+.arrow {
+  display: block;
+  height: 7px;
+  width: 7px;
+}
+
+.table-heading {
+  margin-right: 10px;
+}
+
+.navigation:hover {
+  cursor: pointer;
+}

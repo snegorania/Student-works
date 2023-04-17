@@ -1,8 +1,7 @@
 import React from "react";
-import { Button } from "reactstrap";
-import "bootstrap/dist/css/bootstrap.min.css";
 import { studentsLoadToLocalStorage } from "../studentSlice";
 import { useDispatch } from "react-redux";
+import "../style/buttons.css";
 
 function SaveButton() {
   const dispatch = useDispatch();
@@ -12,9 +11,9 @@ function SaveButton() {
   };
 
   return (
-    <Button outline onClick={loadToStorage}>
+    <button type="button" class="save-button" onClick={loadToStorage}>
       Save
-    </Button>
+    </button>
   );
 }
 

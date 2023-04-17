@@ -1,9 +1,7 @@
 import React from "react";
-import { Button } from "reactstrap";
-import "bootstrap/dist/css/bootstrap.min.css";
 import { studentsReset } from "../studentSlice";
 import { useDispatch } from "react-redux";
-import "../../../App.css";
+import "../style/buttons.css";
 
 function ResetButton() {
   const dispatch = useDispatch();
@@ -13,9 +11,9 @@ function ResetButton() {
   };
 
   return (
-    <Button outline onClick={resetTable}>
+    <button type="button" className="reset-button" onClick={resetTable}>
       Reset
-    </Button>
+    </button>
   );
 }
 
